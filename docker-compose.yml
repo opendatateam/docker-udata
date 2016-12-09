@@ -17,7 +17,7 @@ services:
     - "6379:6379"
 
   elasticsearch:
-    build: elasticsearch
+    image: udata/elasticsearch
     volumes:
       - elasticsearch-data:/usr/share/elasticsearch/data
     ports:
