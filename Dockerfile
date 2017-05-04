@@ -27,6 +27,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean\
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+ENV LIBIMAGEQUANT_VERSION 2.9.1
+
+# Install libpngquant for better images quantization
+RUN git clone https://github.com/ImageOptim/libimagequant \
+    && cd libimagequant \
+    && git checkout $LIBIMAGEQUANT_VERSION \
+    && make shared\
+    && mv libimagequant.so* /usr/local/lib \
+    && cp libimagequant.h /usr/local/include \
+    && cd .. \
+    && rm -fr libimagequant \
+    && ldconfig
+
 # Set version as environment variable to force rebuild
 ENV UDATA_VERSION 1.0.9
 ENV UDATA_PIWIK_VERSION 0.9.1
