@@ -27,8 +27,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean\
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Set version as environment variable to force rebuild
+ENV UDATA_VERSION 1.0.9
+ENV UDATA_PIWIK_VERSION 0.9.1
+ENV UDATA_GOUVFR_VERSION 1.0.6
+ENV UDATA_YOUCKAN_VERSION 1.0.0
+
 # Install udata and all known plugins
-RUN pip install --pre udata udata-piwik udata-gouvfr udata-youckan uwsgi gevent raven
+RUN pip install uwsgi gevent raven \
+    udata==$UDATA_VERSION \
+    udata-piwik==$UDATA_PIWIK_VERSION \
+    udata-gouvfr==$UDATA_GOUVFR_VERSION \
+    udata-youckan==$UDATA_YOUCKAN_VERSION
 
 RUN mkdir -p /udata/fs
 
