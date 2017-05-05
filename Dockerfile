@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python python-dev python-pip\
     # Pillow
     libjpeg-dev zlib1g-dev libpng12-dev libtiff5-dev libfreetype6-dev \
-    liblcms2-dev libopenjpeg-dev libwebp-dev libpng12-dev libopenjpeg-dev \
+    liblcms2-dev libopenjpeg-dev libwebp-dev libpng12-dev \
     # lxml dependencies
     libxml2-dev libxslt1-dev \
     # Misc dependencies
