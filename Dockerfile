@@ -2,43 +2,18 @@
 # Dockerfile for udata
 ##########################################
 
-FROM debian:jessie
+FROM udata/system
 
-# File Author / Maintainer
-MAINTAINER Axel Haustant
+MAINTAINER Open Data Team
 
-# Install uData system dependencies
+# Install some production system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    # Essential Tools
-    tar git wget curl build-essential pkg-config \
-    # Python tools
-    python python-dev python-pip\
-    # Pillow
-    libjpeg-dev zlib1g-dev libpng12-dev libtiff5-dev libfreetype6-dev \
-    liblcms2-dev libopenjpeg-dev libwebp-dev libpng12-dev \
-    # lxml dependencies
-    libxml2-dev libxslt1-dev \
-    # Misc dependencies
-    liblzma-dev libyaml-dev libffi-dev \
-    # uWSGI features
+    # uWSGI rooting features
     libpcre3-dev \
     # Clean up
     && apt-get autoremove\
     && apt-get clean\
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-ENV LIBIMAGEQUANT_VERSION 2.9.1
-
-# Install libpngquant for better images quantization
-RUN git clone https://github.com/ImageOptim/libimagequant \
-    && cd libimagequant \
-    && git checkout $LIBIMAGEQUANT_VERSION \
-    && make shared\
-    && mv libimagequant.so* /usr/local/lib \
-    && cp libimagequant.h /usr/local/include \
-    && cd .. \
-    && rm -fr libimagequant \
-    && ldconfig
 
 # Set version as environment variable to force rebuild
 ENV UDATA_VERSION 1.0.9
