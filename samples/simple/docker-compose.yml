@@ -24,7 +24,7 @@ services:
       - "9200:9200"
 
   udata:
-    build: .
+    image: udata/udata
     links:
       - mongodb:mongodb
       - redis:redis

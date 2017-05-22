@@ -24,13 +24,14 @@ services:
       - "9200:9200"
 
   udata:
-    build: .
+    image: udata/udata
     links:
       - mongodb:mongodb
       - redis:redis
       - elasticsearch:elasticsearch
     volumes:
       - udata-fs:/udata/fs
+      - ./udata.cfg:/udata/udata.cfg
     ports:
       - "7000:7000"
 

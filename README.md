@@ -50,6 +50,16 @@ Then you can run the container with different configurations:
     docker run -v /path/to/storage:/udata/fs udata/udata
     ```
 
+# Running standalone instance
+
+You can run standalone (front/worker/beat) instance with the `front`, `worker` and `beat` commands:
+
+```bash
+docker run udata/udata front
+docker run udata/udata worker
+docker run udata/udata beat
+```
+
 ## Running udata commands
 
 You can also execute `udata` commands with:
@@ -72,6 +82,14 @@ docker run -it --rm udata/udata --help
 
 **Note:** Some commands requires either MongoDB, Redis or Elasticsearch to be up and ready.
 
+## Running celery commands
+
+You are also able to run `celery` commands with:
+
+```bash
+docker run -it --rm udata/udata celery status
+```
+
 ## Running bash
 
 For debugging purpose you can acces a bash prompt with:
@@ -79,3 +97,7 @@ For debugging purpose you can acces a bash prompt with:
 ```bash
 docker run [DOCKER OPTIONS] udata/udata bash
 ```
+
+# Examples
+
+You can see some docker-compose configuration examples in the `sample` directory of this repository.
