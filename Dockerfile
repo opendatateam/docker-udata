@@ -28,7 +28,7 @@ RUN pip install uwsgi gevent raven \
     udata-gouvfr==$UDATA_GOUVFR_VERSION \
     udata-youckan==$UDATA_YOUCKAN_VERSION
 
-RUN mkdir -p /udata/fs
+RUN mkdir -p /udata/fs /src
 
 COPY udata.cfg entrypoint.sh /udata/
 COPY uwsgi/*.ini /udata/uwsgi/

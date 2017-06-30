@@ -1,5 +1,12 @@
 #!/bin/bash
 set -e
+
+# Install source repositories as editable
+for d in /src/*/ ; do
+    echo "Installing $d"
+    pip install -e "$d"
+done
+
 case $1 in
     uwsgi)
         udata collect -ni /udata/public

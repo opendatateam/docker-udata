@@ -41,7 +41,7 @@ Then you can run the container with different configurations:
 * with custom uwsgi configurations (here contained in the `uwsgi` directory):
 
     ```bash
-    docker run -v `pwd`/uwsgi:/udata/uwsgi udata/udata
+    docker run -v `$PWD`/uwsgi:/udata/uwsgi udata/udata
     ```
 
 * with file storage as local volume binding:
@@ -97,6 +97,27 @@ For debugging purpose you can acces a bash prompt with:
 ```bash
 docker run [DOCKER OPTIONS] udata/udata bash
 ```
+
+## Installing extra sources
+
+You can install extra sources by mounting directories as subdirectories of `/src/`.
+
+Given you have a udata theme `awesome-theme` in `my-theme` directory
+and you want to use docker to hack on it with live reload,
+you need to have the following line in your `udata.cfg`:
+
+```python
+THEME = 'awesome-theme'
+```
+
+Then you can run the udata Development server with:
+
+```bash
+docker run -it -v `$PWD`/my-theme:/src/my-theme -v `$PWD`/udata.cfg:/udata/udata.cfg --rm udata/udata serve
+```
+Your theme will be installed and activated.
+
+See the `sample/theme` directory to see a full theme development using `docker-compose`.
 
 # Examples
 
