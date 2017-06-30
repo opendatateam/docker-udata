@@ -1,0 +1,11 @@
+{
+    "application": "udata",
+    "identifier": "awesome-theme",
+    "name": "My Theme",
+    "author": "OpenDataTeam",
+    "description": "My awesome theme",
+    "website": "https://theme.opendata.team",
+    "license": "AGPL",
+    "version": "0.1.0",
+    "doctype": "html5"
+}

@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:3.2
+    command: mongod
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis
+    volumes:
+      - redis-data:/data
+    ports:
+    - "6379:6379"
+
+  elasticsearch:
+    image: udata/elasticsearch
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+
+  udata:
+    image: udata/udata
+    command: serve
+    links:
+      - mongodb:mongodb
+      - redis:redis
+      - elasticsearch:elasticsearch
+    volumes:
+      - ./udata.cfg:/udata/udata.cfg
+      - ./my-theme:/src/my-theme
+    ports:
+      - "7000:7000"
+
+volumes:
+  udata-fs:
+  mongo-data:
+  redis-data:
+  elasticsearch-data:
