@@ -1,6 +1,8 @@
 # udata theme development environement with docker-compose
 
-A sample docker-compose project using a custom theme mounted in `/src/`
+A sample docker-compose project using a custom theme mounted in `/src/`.
+
+This theme has been initialize with the [udata theme cookiecutter template][cookiecutter-udata-theme]
 
 ```bash
 $ docker-compose up -d
@@ -47,3 +49,5 @@ $ docker-compose run --rm udata init
 -> udata:2017-02-25-missing-user-metrics.js ............................. [Recorded]
 -> udata:2017-04-24-fix-resources-urls.js ............................... [Recorded]
 ```
+
+[cookiecutter-udata-theme]: https://github.com/opendatateam/cookiecutter-udata-theme
