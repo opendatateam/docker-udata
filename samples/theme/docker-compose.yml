@@ -25,7 +25,7 @@ services:
 
   udata:
     image: udata/udata
-    command: serve
+    command: serve --host 0.0.0.0
     links:
       - mongodb:mongodb
       - redis:redis

@@ -16,6 +16,7 @@ and use the following paths:
 * `/udata/fs` for storage root (as a volume by default)
 * `/udata/public` for public assets root
 * `/udata/uwsgi/*.ini` for uwsgi configuration files
+* `/src/*/setup.py` for extra development packages to install
 
 You can customize configuration by providing a custom `udata.cfg` or custom uwsgi `ini` file.
 
