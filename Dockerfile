@@ -16,9 +16,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set version as environment variable to force rebuild
-ENV UDATA_VERSION 1.1.1
+ENV UDATA_VERSION 1.1.2
 ENV UDATA_PIWIK_VERSION 0.9.1
-ENV UDATA_GOUVFR_VERSION 1.1.1
+ENV UDATA_GOUVFR_VERSION 1.1.2
 ENV UDATA_YOUCKAN_VERSION 1.0.0
 
 # Install udata and all known plugins
