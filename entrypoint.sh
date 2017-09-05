@@ -2,10 +2,12 @@
 set -e
 
 # Install source repositories as editable
-for d in /src/*/ ; do
-    echo "Installing $d"
-    pip install -e "$d"
-done
+if [ "$(ls -A /src)" ]; then
+    for d in /src/*/ ; do
+        echo "Installing $d"
+        pip install -e "$d"
+    done
+fi
 
 case $1 in
     uwsgi)
