@@ -4,7 +4,7 @@ This Docker image provide uData as well as all known plugins and themes.
 
 It is packaged to run within uwsgi with gevent support.
 
-By default, it expose the frontend on the port **7000** and expect the following services:
+By default, it exposes the frontend on the port **7000** and expect the following services:
 
 * **MongoDB** on `mongodb:27017`
 * **Elasticsearch** on `elasticsearch:9200`
