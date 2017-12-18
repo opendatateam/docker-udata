@@ -1,5 +1,16 @@
 # uData all-in-one Docker image
 
+## Quick start
+
+```bash
+cd docker-udata
+docker-compose up
+```
+Check that [`localhost:7000`](http://localhost:7000) is available in a browser.
+
+
+## Details
+
 This Docker image provide uData as well as all known plugins and themes.
 
 It is packaged to run within uwsgi with gevent support.
