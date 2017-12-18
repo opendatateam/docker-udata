@@ -6,7 +6,7 @@
 cd docker-udata
 docker-compose up
 ```
-Check that `localhost:7000` is available in a browser.
+Check that [`localhost:7000`](http://localhost:7000) is available in a browser.
 
 
 ## Details
