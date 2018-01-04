@@ -15,24 +15,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean\
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Set version as environment variable to force rebuild
-ENV UDATA_VERSION 1.2.5
-ENV UDATA_PIWIK_VERSION 0.9.3
-ENV UDATA_GOUVFR_VERSION 1.2.2
-ENV UDATA_YOUCKAN_VERSION 1.0.0
-ENV UDATA_CROQUEMORT_VERSION 1.0.1
-ENV UDATA_CKAN_VERSION 1.0.0
-ENV UDATA_ODS_VERSION 1.0.0
-
 # Install udata and all known plugins
-RUN pip install uwsgi gevent raven \
-    udata==$UDATA_VERSION \
-    udata-piwik==$UDATA_PIWIK_VERSION \
-    udata-gouvfr==$UDATA_GOUVFR_VERSION \
-    udata-youckan==$UDATA_YOUCKAN_VERSION \
-    udata-croquemort==$UDATA_CROQUEMORT_VERSION \
-    udata-ckan==$UDATA_CKAN_VERSION \
-    udata-ods==$UDATA_ODS_VERSION
+COPY requirements.pip /tmp/requirements.pip
+RUN pip install -r /tmp/requirements.pip
 
 RUN mkdir -p /udata/fs /src
 
