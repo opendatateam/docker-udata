@@ -1,0 +1,6 @@
+---
+branch: master
+pin: False
+update: all
+label_prs: update
+branch_prefix: pyup/
