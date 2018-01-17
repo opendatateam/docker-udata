@@ -3,7 +3,7 @@ gevent==1.2.2
 raven==6.4.0
 udata==1.2.9
 udata-piwik==1.0.2
-udata-gouvfr==1.2.2
+udata-gouvfr==1.2.3
 udata-youckan==1.0.0
 udata-croquemort==1.0.1
 udata-ckan==1.0.0
