@@ -1,7 +1,7 @@
 uwsgi==2.0.15
 gevent==1.2.2
 raven==6.5.0
-udata==1.2.10
+udata==1.2.106035
 udata-piwik==1.0.2
 udata-gouvfr==1.2.4
 udata-youckan==1.0.0
