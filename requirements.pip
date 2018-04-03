@@ -1,7 +1,7 @@
 uwsgi==2.0.17
 gevent==1.2.2
 raven==6.6.0
-udata==1.3.4
+udata==1.3.5
 udata-piwik==1.1.1
 udata-gouvfr==1.3.2
 udata-croquemort==1.0.2
