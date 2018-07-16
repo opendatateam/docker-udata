@@ -1,5 +1,5 @@
 uwsgi==2.0.17
-gevent==1.3.2.post0
+gevent==1.3.5
 raven==6.9.0
 udata==1.4.1
 udata-piwik==1.2.0
