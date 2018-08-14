@@ -1,4 +1,6 @@
-# uData all-in-one Docker image
+# udata all-in-one Docker image
+
+[![](https://images.microbadger.com/badges/image/udata/udata:2-alpine.svg)](https://microbadger.com/images/udata/udata:2-alpine "Docker image details")
 
 ## Quick start
 
@@ -11,7 +13,7 @@ Check that [`localhost:7000`](http://localhost:7000) is available in a browser.
 
 ## Details
 
-This Docker image provide uData as well as all known plugins and themes.
+This Docker image provide udata as well as all known plugins and themes.
 
 It is packaged to run within uwsgi with gevent support.
 
