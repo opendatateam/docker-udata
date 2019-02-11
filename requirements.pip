@@ -1,4 +1,4 @@
-uwsgi==2.0.17.1
+uwsgi==2.0.18
 gevent==1.4.0
 gouvlu==1.1.7
 raven==6.10.0
