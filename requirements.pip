@@ -6,7 +6,7 @@ udata==1.6.6
 udata-ckan==1.2.0
 udata-croquemort==1.0.3
 udata-geoplatform==1.0.1
-udata-gouvfr==1.6.4
+udata-gouvfr==1.6.6
 udata-ods==1.2.3
 udata-piwik==1.4.0
 udata-recommendations==1.0.1
