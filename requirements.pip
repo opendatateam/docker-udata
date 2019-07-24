@@ -1,6 +1,6 @@
 uwsgi==2.0.18
 gevent==1.4.0
-gouvlu==1.1.7
+gouvlu==1.1.32
 raven==6.10.0
 udata==1.6.12
 udata-ckan==1.2.2
