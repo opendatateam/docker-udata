@@ -2,7 +2,7 @@ uwsgi==2.0.18
 gevent==1.4.0
 gouvlu==1.1.7
 raven==6.10.0
-udata==1.6.12
+udata==1.6.13
 udata-ckan==1.2.2
 udata-croquemort==1.0.4
 udata-geoplatform==1.0.1
