@@ -1,8 +1,8 @@
-uwsgi==2.0.17.1
-gevent==1.3.6
+uwsgi==2.0.18
+gevent==1.4.0
 #gouvlu==1.1.0
-raven==6.9.0
-udata==2.0.0.dev10649
+raven==6.10.0
+udata==2.0.0.dev15755
 #udata-ckan==1.1.1
 #udata-croquemort==1.0.3
 #udata-geoplatform==1.0.1
