@@ -2,7 +2,7 @@ uwsgi==2.0.18
 gevent==1.4.0
 #gouvlu==1.1.0
 raven==6.10.0
-udata==2.0.0.dev15755
+https://16074-19141754-gh.circle-artifacts.com/0/root/project/dist/udata-2.0.0.dev16074-py2.py3-none-any.whl
 #udata-ckan==1.1.1
 #udata-croquemort==1.0.3
 #udata-geoplatform==1.0.1
