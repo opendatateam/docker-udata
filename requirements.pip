@@ -2,11 +2,13 @@ uwsgi==2.0.18
 gevent==1.4.0
 #gouvlu==1.1.0
 raven==6.10.0
+#udata
 https://16074-19141754-gh.circle-artifacts.com/0/root/project/dist/udata-2.0.0.dev16074-py2.py3-none-any.whl
 #udata-ckan==1.1.1
 #udata-croquemort==1.0.3
 #udata-geoplatform==1.0.1
-#udata-gouvfr==1.4.3
+#udata-gouvfr
+https://1813-19141770-gh.circle-artifacts.com/0/root/project/dist/udata_gouvfr-2.0.0.dev1813-py2.py3-none-any.whl
 #udata-ods==1.1.0
 #udata-piwik==1.2.0
 #udata-recommendations==1.0.1
