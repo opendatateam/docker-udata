@@ -10,6 +10,8 @@ MAINTAINER Open Data Team
 RUN apt-get update && apt-get install -y --no-install-recommends \
     # uWSGI rooting features
     libpcre3-dev \
+    # Fix "Failed building wheel for package_name" error
+    python-wheel \
     # Clean up
     && apt-get autoremove\
     && apt-get clean\
