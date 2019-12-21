@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install udata and all known plugins
-COPY requirements.pip /tmp/requirements.pip
+ADD requirements.pip /tmp/requirements.pip
 RUN pip install -r /tmp/requirements.pip
 
 RUN mkdir -p /udata/fs /src
