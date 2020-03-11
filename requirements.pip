@@ -1,6 +1,5 @@
 uwsgi==2.0.18
 gevent==1.4.0
-gouvlu==1.1.42  # pyup: ignore # Too many updates
 raven==6.10.0
 udata==2.0.0
 udata-ckan==2.0.0
