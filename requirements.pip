@@ -5,7 +5,7 @@ raven==6.10.0
 udata==1.6.20
 udata-ckan==1.2.2
 udata-croquemort==1.0.4
-udata-geoplatform==1.0.1
+udata-geoplatform==2.0.0
 udata-gouvfr==1.6.12
 udata-ods==1.2.4
 udata-piwik==1.4.1
