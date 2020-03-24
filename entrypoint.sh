@@ -1,11 +1,16 @@
 #!/bin/bash
 set -e
 
-# Install source repositories as editable
 if [ "$(ls -A /src)" ]; then
+    # Install source repositories as editable
     for d in /src/*/ ; do
         echo "Installing $d"
         pip install -e "$d"
+    done
+    # Install packages from requirements files
+    for r in /src/*.pip ; do
+        echo "Installing dependencies from $r"
+        pip install -r "$d"
     done
 fi
 
