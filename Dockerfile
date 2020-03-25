@@ -2,7 +2,7 @@
 # Dockerfile for udata
 ##########################################
 
-FROM udata/system:2-alpine
+FROM udata/system
 
 # Optionnal build arguments
 ARG REVISION="N/A"
@@ -17,12 +17,18 @@ LABEL "org.opencontainers.image.sources"="https://github.com/opendatateam/docker
 LABEL "org.opencontainers.image.revision"=$REVISION
 LABEL "org.opencontainers.image.created"=$CREATED
 
-# Install some production system dependencies
-RUN apk add --no-cache pcre-dev libuv-dev
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # uWSGI rooting features
+    libpcre3-dev \
+    # Clean up
+    && apt-get autoremove\
+    && apt-get clean\
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install udata and all known plugins
 COPY requirements.pip /tmp/requirements.pip
-RUN pip install -r /tmp/requirements.pip && rm -r /root/.cache
+RUN pip install -r /tmp/requirements.pip && pip check || pip install -r /tmp/requirements.pip
+RUN rm -r /root/.cache
 
 RUN mkdir -p /udata/fs /src
 
