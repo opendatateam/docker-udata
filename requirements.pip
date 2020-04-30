@@ -1,7 +1,7 @@
 uwsgi==2.0.18
 gevent==1.4.0
 raven==6.10.0
-udata==2.0.1
+udata==2.0.3
 udata-ckan==2.0.0
 udata-croquemort==2.0.0
 udata-geoplatform==2.0.0
