@@ -3,7 +3,7 @@ gevent==1.4.0
 raven==6.10.0
 udata==2.0.1
 udata-ckan==2.0.0
-udata-croquemort==2.0.0
+udata-croquemort==2.0.1
 udata-geoplatform==2.0.0
 udata-gouvfr==2.0.1
 udata-ods==2.0.1
