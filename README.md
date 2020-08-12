@@ -11,7 +11,7 @@ docker-compose up
 
 To be able to upload files, you will need to access the docker instance through an URL with a tld, i.e. `localhost.local` for example (set it in your `/etc/hosts` on your Unix machine).
 
-Check that [`localhost.local:7000`](http://localhost:7000) is available in a browser.
+Check that [`localhost.local:7000`](http://localhost.local:7000) is available in a browser.
 
 
 ## Details
