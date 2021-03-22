@@ -5,7 +5,7 @@ udata==2.4.1
 udata-ckan==2.0.0
 udata-croquemort==2.0.1
 udata-geoplatform==2.0.0
-udata-gouvfr==2.2.3
+udata-gouvfr==2.5.1
 udata-ods==2.1.0
 udata-piwik==2.1.2
 udata-recommendations==2.1.1
