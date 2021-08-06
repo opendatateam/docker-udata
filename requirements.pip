@@ -1,5 +1,5 @@
 uwsgi==2.0.19.1
-gevent==20.9.0
+gevent==21.8.0
 raven==6.10.0
 udata==2.4.1
 udata-ckan==2.0.0
