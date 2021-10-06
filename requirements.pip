@@ -1,4 +1,4 @@
-uwsgi==2.0.19.1
+uwsgi==2.0.20
 gevent==20.9.0
 raven==6.10.0
 udata==2.4.1
