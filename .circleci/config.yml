@@ -11,13 +11,15 @@ jobs:
           version: 20.10.11
           docker_layer_caching: true
       - run:
-          name: Build a distributable package
+          name: Build and push docker image
           command: |
             TAG=1.7.$CIRCLE_BUILD_NUM
             docker build \
               --build-arg REVISION=`git rev-parse --short HEAD` \
               --build-arg CREATED=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
               -t udata/udata:$TAG .
+            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+            docker push udata/udata:$TAG
       - store_artifacts:
           path: dist
       - persist_to_workspace:
