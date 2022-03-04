@@ -117,7 +117,7 @@ docker run [DOCKER OPTIONS] udata/udata bash
 
 ## Installing extra sources
 
-:warning: theme management have been modified when [migrating to udata 3](https://udata.readthedocs.io/en/stable/roadmap/udata-3/). This section is under renovation.
+:warning: Theme management has been modified when [migrating to udata 3](https://udata.readthedocs.io/en/stable/roadmap/udata-3/). This section is under renovation.
 
 You can install extra sources by mounting directories as subdirectories of `/src/`.
 
