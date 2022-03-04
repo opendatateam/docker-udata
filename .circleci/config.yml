@@ -13,7 +13,11 @@ jobs:
       - run:
           name: Build and push docker image
           command: |
-            TAG=1.7.$CIRCLE_BUILD_NUM
+            if [[ $CIRCLE_TAG ]]; then
+                # This is a tagged release
+                TAG=$CIRCLE_TAG
+            else
+                TAG=latest
             docker build \
               --build-arg REVISION=`git rev-parse --short HEAD` \
               --build-arg CREATED=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
@@ -37,7 +41,6 @@ workflows:
               only:
                 - master
                 - /[0-9]+(\.[0-9]+)+/
-                - feat/add-docker-push-ci  # TODO: remove this temporary branch trigger
             tags:
               only: /v[0-9]+(\.[0-9]+)*/
           context: org-global
