@@ -16,7 +16,7 @@ Check that [`localhost.local:7000`](http://localhost.local:7000) is available in
 
 ## Details
 
-This Docker image provide udata as well as all known plugins and themes.
+This Docker image provide udata as well as known plugins and gouvfr theme.
 
 It is packaged to run within uwsgi with gevent support.
 
@@ -116,6 +116,8 @@ docker run [DOCKER OPTIONS] udata/udata bash
 ```
 
 ## Installing extra sources
+
+:warning: theme management have been modified when [migrating to udata 3](https://udata.readthedocs.io/en/stable/roadmap/udata-3/). This section is under renovation.
 
 You can install extra sources by mounting directories as subdirectories of `/src/`.
 
