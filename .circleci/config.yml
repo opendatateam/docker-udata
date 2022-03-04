@@ -4,11 +4,11 @@ version: 2
 jobs:
   publish-docker-image:
     docker:
-      - image: udata/circleci:2-alpine
+      - image: cimg/base:stable-20.04
     steps:
       - checkout
       - setup_remote_docker:
-          version: 19.03.13
+          version: 20.10.11
           docker_layer_caching: true
       - run:
           name: Build a distributable package
