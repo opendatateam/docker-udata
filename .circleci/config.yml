@@ -1,0 +1,46 @@
+---
+version: 2
+
+jobs:
+  publish-docker-image:
+    docker:
+      - image: cimg/base:stable-20.04
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 20.10.11
+          docker_layer_caching: true
+      - run:
+          name: Build and push docker image
+          command: |
+            if [[ $CIRCLE_TAG ]]; then
+                # This is a tagged release
+                TAG=$CIRCLE_TAG
+            else
+                TAG=latest
+            docker build \
+              --build-arg REVISION=`git rev-parse --short HEAD` \
+              --build-arg CREATED=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+              -t udata/udata:$TAG .
+            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+            docker push udata/udata:$TAG
+      - store_artifacts:
+          path: dist
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - publish-docker-image:
+          filters:
+            branches:
+              only:
+                - master
+                - /[0-9]+(\.[0-9]+)+/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/
+          context: org-global
