@@ -7,4 +7,4 @@ udata-front==1.2.4
 udata-ods==2.1.0
 udata-piwik==3.1.0
 udata-recommendations==3.1.0
-sentry-sdk[flask]==1.3.1
+sentry-sdk[flask]==1.9.9
