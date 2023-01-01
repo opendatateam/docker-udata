@@ -1,7 +1,7 @@
-uwsgi==2.0.20
-gevent==21.12.0
+uwsgi==2.0.21
+gevent==22.10.1
 udata==5.0.2
-udata-ckan==2.0.0
+udata-ckan==3.0.0
 udata-geoplatform==2.0.0
 udata-front==1.2.4
 udata-ods==2.1.0
