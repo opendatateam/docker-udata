@@ -1,5 +1,5 @@
 uwsgi==2.0.21
-gevent==22.10.1
+gevent==22.10.2
 udata==5.0.2
 udata-ckan==3.0.0
 udata-geoplatform==2.0.0
