@@ -1,4 +1,4 @@
-uwsgi==2.0.20
+uwsgi==2.0.21
 gevent==22.10.1
 udata==3.3.2
 udata-ckan==2.0.0
