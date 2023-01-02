@@ -23,7 +23,7 @@ jobs:
               --build-arg REVISION=`git rev-parse --short HEAD` \
               --build-arg CREATED=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
               -t chalkandcheese/udata:$TAG .
-            echo $DOCKER_TOKEN | docker login --username $DOCKER_USER
+            echo $DOCKER_TOKEN | docker login --username $DOCKER_USER --password-stdin
             docker push chalkandcheese/udata:$TAG
       - store_artifacts:
           path: dist
