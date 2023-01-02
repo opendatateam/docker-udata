@@ -23,8 +23,8 @@ jobs:
               --build-arg REVISION=`git rev-parse --short HEAD` \
               --build-arg CREATED=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
               -t udata/udata:$TAG .
-            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-            docker push udata/udata:$TAG
+            # echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+            # docker push udata/udata:$TAG
       - store_artifacts:
           path: dist
       - persist_to_workspace:
@@ -38,10 +38,10 @@ workflows:
     jobs:
       - publish-docker-image:
           filters:
-            branches:
-              only:
-                - master
-                - /[0-9]+(\.[0-9]+)+/
+            # branches:
+            #  only:
+            #    - master
+            #    - /[0-9]+(\.[0-9]+)+/
             tags:
               only: /v[0-9]+(\.[0-9]+)*/
           context: org-global
