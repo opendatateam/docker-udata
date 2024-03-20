@@ -117,15 +117,18 @@ docker run [DOCKER OPTIONS] udata/udata bash
 
 ## Installing extra sources
 
-:warning: Theme management has been modified when [migrating to udata 3](https://udata.readthedocs.io/en/stable/roadmap/udata-3/). This section is under renovation.
+:warning: Theme management has been modified when [migrating to udata 3](https://udata.readthedocs.io/en/stable/roadmap/udata-3/). You can see how to make a custom theme on [udata documentation](https://udata.readthedocs.io/en/stable/creating-theme/).
+
+See the `sample/theme` directory to see a full theme development using `docker-compose`.
 
 You can install extra sources by mounting directories as subdirectories of `/src/`.
 
 Given you have a udata theme `awesome-theme` in `my-theme` directory
 and you want to use docker to hack on it with live reload,
-you need to have the following line in your `udata.cfg`:
+you need to have the following lines in your `udata.cfg`:
 
 ```python
+PLUGINS = ['my-theme']
 THEME = 'awesome-theme'
 ```
 
@@ -135,8 +138,6 @@ Then you can run the udata Development server with:
 docker run -it -v `$PWD`/my-theme:/src/my-theme -v `$PWD`/udata.cfg:/udata/udata.cfg --rm udata/udata serve
 ```
 Your theme will be installed and activated.
-
-See the `sample/theme` directory to see a full theme development using `docker-compose`.
 
 # Examples
 

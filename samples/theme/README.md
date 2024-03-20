@@ -1,6 +1,32 @@
-# udata theme development environement with docker-compose
+# udata theme development environment with docker-compose
 
-A sample docker-compose project using a custom theme mounted in `/src/`
+A sample docker-compose project using a custom theme mounted in `/src/`.
+
+You **must** replace `my-theme` folder with your [independent plugin theme](https://udata.readthedocs.io/en/stable/creating-theme/#independent-plugin-theme) or your [udata-front based theme](https://udata.readthedocs.io/en/stable/creating-theme/#udata-front-based-theme-not-recommended).
+
+You should build your own udata image instead of using `udata/udata` for now.
+
+
+## independent plugin theme
+
+If you are using an independent plugin theme, you must activate your plugin and your theme. 
+If you don't activate any plugin, your udata setup won't have any user facing view.
+
+```
+PLUGINS = ["my-plugin"]
+THEME = 'my-theme'
+```
+
+## udata-front based theme
+
+If you are using a udata-front based theme, you must activate the front plugin and your theme :
+
+```
+PLUGINS = ["front"]
+THEME = 'gouvfr'
+```
+
+
 
 ```bash
 $ docker-compose up -d
