@@ -24,8 +24,8 @@ services:
       - "9200:9200"
 
   udata:
-    image: udata/udata
-    command: serve --host 0.0.0.0
+    build: ../../
+    command: serve --host 0.0.0.0 --debugger --reload
     links:
       - mongodb:mongodb
       - redis:redis
