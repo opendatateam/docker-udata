@@ -26,6 +26,14 @@ PLUGINS = ["front"]
 THEME = 'gouvfr'
 ```
 
+The default `entrypoint.sh` won't work with udata-front requirements folder so a custom one is provided here. It should be added to the service volumes as shown below:
+
+```
+volumes:
+    - ./udata.cfg:/udata/udata.cfg
+    - ./udata-front-entrypoint.sh:/udata/entrypoint.sh
+    - ./udata_front:/src/udata_front
+```
 
 
 ```bash
