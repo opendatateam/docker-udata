@@ -8,10 +8,10 @@ if [ "$(ls -A /src)" ]; then
         pip install -e "$d"
     done
     # Install packages from requirements files
-    for r in /src/*.pip ; do
-        echo "Installing dependencies from $r"
-        pip install -r "$d"
-    done
+    # for r in /src/*.pip ; do
+    #     echo "Installing dependencies from $r"
+    #     pip install -r "$d"
+    # done
 fi
 
 case $1 in

@@ -22,10 +22,16 @@ services:
       - redis:redis
     volumes:
       - udata-fs:/udata/fs
+      #- ../udata-front-sbe:/src/udata-front
+      # - ../udata-front-sbe:/src/udata-front
+      # - ../udata-front:/home/sbe/projects/setec/setec_entrepot/udata-front-sbe
+      - /home/sbe/projects/setec/setec_entrepot/udata-front-sbe:/src/udata-front
     ports:
       - "7000:7000"
+    command: serve --host 0.0.0.0 --debugger --reload
 
 volumes:
   udata-fs:
   mongo-data:
   redis-data:
+  # udata-front:
