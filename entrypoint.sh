@@ -2,6 +2,9 @@
 set -e
 
 if [ "$(ls -A /src)" ]; then
+    ngstate="$(shopt -p nullglob || true)"
+    shopt -s nullglob
+
     # Install source repositories as editable
     for d in /src/*/ ; do
         echo "Installing $d"
@@ -10,8 +13,10 @@ if [ "$(ls -A /src)" ]; then
     # Install packages from requirements files
     for r in /src/*.pip ; do
         echo "Installing dependencies from $r"
-        pip install -r "$d"
+        pip install -r "$r"
     done
+
+    $(eval $ngstate)
 fi
 
 case $1 in
