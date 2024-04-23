@@ -1,7 +1,7 @@
-version: '3'
-
 services:
+
   mongodb:
+    container_name: gdh-db-mongo
     image: mongo:6.0.4
     volumes:
       - mongo-data:/data/db
@@ -9,20 +9,21 @@ services:
       - "27017:27017"
 
   redis:
+    container_name: gdh-bus-redis
     image: redis
     volumes:
       - redis-data:/data
     ports:
-    - "6379:6379"
+      - "6379:6379"
 
   udata:
+    container_name: gdh-app-udata
     build: .
     links:
       - mongodb:mongodb
       - redis:redis
     volumes:
       - udata-fs:/udata/fs
-      # - /home/sbe/projects/setec/setec_entrepot/udata-front-sbe:/src/udata-front
       - ../udata-front-sbe:/src/udata-front
     ports:
       - "7000:7000"
@@ -33,3 +34,13 @@ volumes:
   mongo-data:
   redis-data:
   # udata-front:
+
+networks:
+  default:
+    name: gdh-udata
+    external: true
+    ipam:
+      driver: bridge
+      config:
+        - subnet: 172.17.0.0/29
+
