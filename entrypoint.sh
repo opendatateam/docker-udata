@@ -8,9 +8,9 @@ if [ "$(ls -A /src)" ]; then
         pip install -e "$d"
     done
     # Install packages from requirements files
-    for r in /src/*.pip ; do
+    for r in /src/*/requirements/*.pip ; do
         echo "Installing dependencies from $r"
-        pip install -r "$d"
+        pip install -r "$r"
     done
 fi
 
