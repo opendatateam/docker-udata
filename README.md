@@ -117,7 +117,7 @@ docker run [DOCKER OPTIONS] udata/udata bash
 
 ## Installing extra sources
 
-:warning: Theme management has been modified when [migrating to udata 3](https://udata.readthedocs.io/en/stable/roadmap/udata-3/). You can see how to make a custom theme on [udata documentation](https://udata.readthedocs.io/en/stable/creating-theme/).
+:warning: This section is here as an example of what you could do but is not the recommended way to develop on custom sources. See [getting started](https://udata.readthedocs.io/en/stable/getting-started/) to start a development environment.
 
 See the `sample/theme` directory to see a full theme development using `docker-compose`.
 
