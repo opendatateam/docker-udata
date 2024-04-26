@@ -2,7 +2,7 @@
 # Dockerfile for udata
 ##########################################
 
-FROM udata/system
+FROM udata/system:py3.11
 
 # Optionnal build arguments
 ARG REVISION="N/A"
