@@ -2,15 +2,16 @@
 set -e
 
 if [ "$(ls -A /src)" ]; then
-    # Install source repositories as editable
-    for d in /src/*/ ; do
-        echo "Installing $d"
-        pip install -e "$d"
-    done
     # Install packages from requirements files
     for r in /src/*/requirements/*.pip ; do
         echo "Installing dependencies from $r"
         pip install -r "$r"
+    done
+    # Install source repositories as editable
+    # (must happen after dependencies to allow for overrides)
+    for d in /src/*/ ; do
+        echo "Installing $d"
+        pip install -e "$d"
     done
 fi
 
