@@ -21,6 +21,8 @@ services:
       - mongodb:mongodb
       - redis:redis
     command: serve --host 0.0.0.0 --debugger --reload
+    environment:
+      - FLASK_DEBUG=true
     volumes:
       - udata-fs:/udata/fs
     ports:
