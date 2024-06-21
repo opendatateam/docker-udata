@@ -4,36 +4,51 @@ services:
   mongodb:
     container_name: gdh-db-mongo
     image: mongo:6.0.4
-    volumes:
-      - mongo-data:/data/db
+    container_name: gdh-db-mongo
     ports:
       - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
 
   redis:
     container_name: gdh-bus-redis
     image: redis
+    container_name: gdh-broker-redis
+    ports:
+    - "6379:6379"
     volumes:
       - redis-data:/data
+
+  elasticsearch:
+    image: udata/elasticsearch
+    container_name: gdh-search-elasticsearch
     ports:
-      - "6379:6379"
+      - "9200:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
 
   udata:
     container_name: gdh-app-udata
     build: .
+    container_name: gdh-group-app-udata
     links:
+      - elasticsearch:elasticsearch
       - mongodb:mongodb
       - redis:redis
+    command: serve --host 0.0.0.0 --debugger --reload
+    environment:
+      - FLASK_DEBUG=true
+    ports:
+      - "7000:7000"
     volumes:
       - udata-fs:/udata/fs
       - ../udata-front-sbe:/src/udata-front
-    ports:
-      - "7000:7000"
     command: serve --host 0.0.0.0 --debugger --reload
     environment:
       - FLASK_DEBUG=true
 
 volumes:
-  udata-fs:
+  elasticsearch-data:
   mongo-data:
   redis-data:
   # udata-front:
@@ -47,3 +62,4 @@ networks:
       config:
         - subnet: 172.17.0.0/29
 
+  udata-fs:
