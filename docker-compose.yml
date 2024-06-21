@@ -1,10 +1,9 @@
 version: '3'
-services:
 
+services:
   mongodb:
     container_name: gdh-db-mongo
     image: mongo:6.0.4
-    container_name: gdh-db-mongo
     ports:
       - "27017:27017"
     volumes:
@@ -13,7 +12,6 @@ services:
   redis:
     container_name: gdh-bus-redis
     image: redis
-    container_name: gdh-broker-redis
     ports:
     - "6379:6379"
     volumes:
@@ -28,9 +26,8 @@ services:
       - elasticsearch-data:/usr/share/elasticsearch/data
 
   udata:
-    container_name: gdh-app-udata
-    build: .
     container_name: gdh-group-app-udata
+    build: .
     links:
       - elasticsearch:elasticsearch
       - mongodb:mongodb
@@ -41,25 +38,26 @@ services:
     ports:
       - "7000:7000"
     volumes:
-      - udata-fs:/udata/fs
-      - ../udata-front-sbe:/src/udata-front
-    command: serve --host 0.0.0.0 --debugger --reload
-    environment:
-      - FLASK_DEBUG=true
+      - ./udata-config:/udata/fs
+      # - ../udata-front-sbe:/src/udata-front
 
 volumes:
   elasticsearch-data:
   mongo-data:
   redis-data:
-  # udata-front:
+  udata-fs:
+    driver: local # Define the driver and options under the volume name
+    driver_opts:
+      type: none
+      device: ./data/
+      o: bind
 
 networks:
   default:
-    name: gdh-udata
+    name: gdh-udata-network
     external: true
     ipam:
       driver: bridge
       config:
         - subnet: 172.17.0.0/29
 
-  udata-fs:
