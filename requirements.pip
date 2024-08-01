@@ -1,6 +1,6 @@
 uwsgi==2.0.21
 gevent==24.2.1
-udata==8.0.0
+udata==9.1.3
 udata-ckan==3.0.3
 udata-front==4.0.0
 udata-piwik==4.1.0
